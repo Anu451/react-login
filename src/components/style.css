@@ -1,0 +1,90 @@
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-family: 'Poppins', sans-serif;
+	font-size: medium;
+	
+}
+
+.form-head{
+	text-align: center;
+	padding-bottom: 1.5rem;
+}
+
+.container {
+	width: 350px;
+	max-width: 350px;
+	background: white;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+	border-radius: 1rem;
+	margin: 1rem;
+	padding: 2rem;
+}
+.input-container{
+width: 100%;
+margin: 1.5rem 0;
+}
+
+.form-input:focus{
+    border-color: rgb(45, 52, 255);
+    background: white;
+}
+.form-input{
+	display: inline-block;
+   width: 100%;
+    display: block;
+    padding: 0.8rem;
+    background: rgb(234, 234, 234);
+    outline: none;
+    border-radius: 1rem;
+    border: 1px solid #dddddd;
+		margin-bottom: 1rem;
+}
+
+.button {
+	padding: 0.8rem;
+}
+
+.form-button {
+	margin-top: 1.5rem;
+	margin-bottom: 1rem;
+	width: 100%;
+	padding: 0.8rem;
+	border-radius: 1rem;
+	border: none;
+	font-size: large;
+	background: rgb(45, 52, 255);
+	color: white;
+	cursor: pointer;
+	letter-spacing: 3px;
+}
+
+.form-button:hover{
+    background:rgb(18, 20, 85) ;
+}
+
+.link-signup a,.link-forgotPassword a,.link-login a{
+	text-decoration: none;
+	color: rgb(78, 78, 78);
+
+}
+
+.link-signup a:hover,.link-forgotPassword a:hover,.link-login a:hover{
+color: black;
+}
+.link-signup,.link-forgotPassword,.link-login{
+	text-align: center;
+	text-decoration: none ;
+	padding: 0.4rem;
+	font-size: 0.7rem;
+}
+
