@@ -5,6 +5,7 @@ import { useState } from 'react';
 function Resetpassword() {
 	const initialValue = { resetpassword: '', confirmpassword: '' };
 	const [fromValue, setFormValue] = useState(initialValue);
+	const [fromError, setFormError] = useState({});
 
 	const handelChange = (e) => {
 		console.log(e.target);
@@ -12,9 +13,27 @@ function Resetpassword() {
 		setFormValue({ ...setFormValue, [name]: value });
 	};
 
+	const handelSubmit = (e) => {
+		e.preventDefault();
+		setFormError(validate(values));
+	};
+
+	const validate = (values) => {
+		const errors = {};
+		const regex = '^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$';
+
+		if (!values.resetpassword) {
+			errors.resetpassword = 'Password is Required';
+		}
+		if (!values.confirmpassword) {
+			errors.confirmpassword = 'Renter the Password';
+		}
+		return errors;
+	};
+
 	return (
 		<div className="container">
-			<form action="">
+			<form action="" onSubmit={handelSubmit}>
 				<h1 className="form-head">Reset Password</h1>
 
 				<div className="resetPassword-input">
@@ -42,7 +61,7 @@ function Resetpassword() {
 				</div>
 
 				<div className="link-login">
-					<a href="#">Back to Login</a>
+					<a href="/">Back to Login</a>
 				</div>
 			</form>
 		</div>
