@@ -3,15 +3,16 @@ import './App.css';
 import Login from './components/Login';
 import Register from './components/Register';  
 import Resetpassword from './components/Resetpassword';
+import {Routes,Route} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-    
-    {/* <Login></Login> */}
-    {/* <Register></Register> */}
-    <Resetpassword></Resetpassword>
-    </div>
+
+    <Routes>
+      <Route path='/' element={<Login/>}></Route>
+      <Route path='register' element={<Register/>}></Route>
+      <Route path='resetpassword' element={<Resetpassword/>}></Route>
+    </Routes>
   );
 }
 
