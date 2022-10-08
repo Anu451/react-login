@@ -29,7 +29,7 @@ function Register() {
 		const errors = {};
 		const regex = '^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$';
 
-		if (!values.username) {
+	 	if (!values.username) {
 			errors.username = 'UserName is Required';
 		}
 		if (!values.userid) {
@@ -39,7 +39,7 @@ function Register() {
 		if (!values.password) {
 			errors.userid = 'UserID is Required';
 		}
-
+      
 		if (!values.repassword) {
 			errors.repassword = 'Re-Enter the Password';
 		}
