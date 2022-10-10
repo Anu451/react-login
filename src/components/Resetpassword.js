@@ -5,7 +5,7 @@ import { useState } from 'react';
 function Resetpassword() {
 	const initialValue = { resetpassword: '', confirmpassword: '' };
 	const [fromValue, setFormValue] = useState(initialValue);
-	const [fromError, setFormError] = useState({});
+	const [errorMsg, setErrorMsg] = React.useState('');
 
 	const handelChange = (e) => {
 		console.log(e.target);
@@ -13,28 +13,36 @@ function Resetpassword() {
 		setFormValue({ ...setFormValue, [name]: value });
 	};
 
-	const handelSubmit = (e) => {
+
+	const handelClick = (e) => {
 		e.preventDefault();
-		setFormError(validate(values));
+		setErrorMsg('Valid User');
 	};
+	
+	// const handelSubmit = (e) => {
+	// 	e.preventDefault();
+	// 	setFormError(validate(values));
+	// };
 
-	const validate = (values) => {
-		const errors = {};
-		const regex = '^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$';
+	// const validate = (values) => {
+	// 	const errors = {};
+	// 	const regex = '^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$';
 
-		if (!values.resetpassword) {
-			errors.resetpassword = 'Password is Required';
-		}
-		if (!values.confirmpassword) {
-			errors.confirmpassword = 'Renter the Password';
-		}
-		return errors;
-	};
+	// 	if (!values.resetpassword) {
+	// 		errors.resetpassword = 'Password is Required';
+	// 	}
+	// 	if (!values.confirmpassword) {
+	// 		errors.confirmpassword = 'Renter the Password';
+	// 	}
+	// 	return errors;
+	// };
 
 	return (
 		<div className="container">
-			<form action="" onSubmit={handelSubmit}>
+			<form action="">
 				<h1 className="form-head">Reset Password</h1>
+
+				{errorMsg && <div className="error">{errorMsg}</div>}
 
 				<div className="resetPassword-input">
 					<input
@@ -57,7 +65,7 @@ function Resetpassword() {
 						onChange={handelChange}
 					/>
 
-					<button className="form-button">Reset</button>
+					<button className="form-button" onClick={handelClick}>Reset</button>
 				</div>
 
 				<div className="link-login">

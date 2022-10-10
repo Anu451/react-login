@@ -6,7 +6,13 @@ import './style.css';
 function Login() {
 	const initialValue = { userid: '', password: '' };
 	const [fromValue, setFormValue] = useState(initialValue);
-	const [fromError, setFormError] = useState({});
+	const [errorMsg, setErrorMsg] = React.useState('');
+
+const handelClick = (e) => {
+	e.preventDefault();
+	setErrorMsg('Valid User');
+};
+	
 
 	const handleChange = (e) => {
 		console.log(e.target);
@@ -14,32 +20,30 @@ function Login() {
 		setFormValue({ ...setFormValue, [name]: value });
 	};
 
-	const handelSubmit = (e) => {
-		e.preventDefault();
-		setFormError(validate(fromValue));
-	};
+	// const handelSubmit = (e) => {
+	// 	e.preventDefault();
+	// 	setFormError(validate(fromValue));
+	// };
 
-	const validate = (values) => {
-		const errors = {};
-		const regex = '^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$';
+	// const validate = (values) => {
+	// 	const errors = {};
+	// 	const regex = '^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$';
 
-		if (!values.userid) {
-			errors.userid = 'UserId is Required';
-		}
-		if (!values.password) {
-			errors.userid = 'UserId is Required';
-		}
-		return errors;
-	};
+	// 	if (!values.userid) {
+	// 		errors.userid = 'UserId is Required';
+	// 	}
+	// 	if (!values.password) {
+	// 		errors.userid = 'UserId is Required';
+	// 	}
+	// 	return errors;
+	// };
 
 	return (
 		<div className="container">
-			<form onSubmit={handelSubmit}>
+			<form>
 				<h1 className="form-head">LogIn</h1>
 
-				<div className="errormsg">
-					<label>Valid user name</label>
-				</div>
+				{errorMsg && <div className="error">{errorMsg}</div>}
 
 				<div className="input-container">
 					<input
@@ -63,7 +67,9 @@ function Login() {
 					/>
 				</div>
 
-				<button className="form-button">Login</button>
+				<button className="form-button" onClick={handelClick}>
+					Login
+				</button>
 
 				<div className="link-signup">
 					<a href="/register">Don't have account ? Sign Up</a>
